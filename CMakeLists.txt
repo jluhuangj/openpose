@@ -1,3 +1,26 @@
+# opencv
+#set(OpenCV_INCLUDE_DIRS $CAFFE_THIRD_ROOT/opencv/include)
+#set(OpenCV_LIBS_DIR $CAFFE_THIRD_ROOT/opencv/lib)
+
+# gflags
+set(GFLAGS_INCLUDE_DIR ${CAFFE_THIRD_ROOT}/gflags/include)
+set(GFLAGS_LIBRARY ${CAFFE_THIRD_ROOT}/gflags/lib/libgflags.so)
+
+# glog
+set(GLOG_INCLUDE_DIR ${CAFFE_THIRD_ROOT}/glog/include)
+set(GLOG_LIBRARY ${CAFFE_THIRD_ROOT}/glog/lib/libglog.so)
+
+# MKL
+set(MKL_PATH ${CAFFE_THIRD_ROOT}/intel-mkl)
+
+# cudnn
+set(CUDNN_INCLUDE /home/work/cudnn-v5.1/cuda/include)
+set(CUDNN_LIBRARY /home/work/cudnn-v5.1/cuda/lib64)
+
+# caffe
+#set(Caffe_INCLUDE_DIRS /home/hj/Desktop/caffe-hj/caffe/master/distribute/include)
+#set(Caffe_LIBS /home/hj/Desktop/caffe-hj/caffe/master/distribute/lib/libcaffe.so)
+
 ### VERSION INFO
 set(OpenPose_VERSION_MAJOR 1)
 set(OpenPose_VERSION_MINOR 4)
@@ -118,7 +141,8 @@ set_property(CACHE DL_FRAMEWORK PROPERTY STRINGS CAFFE)
 # Suboptions for Caffe DL Framework
 include(CMakeDependentOption)
 if (${DL_FRAMEWORK} MATCHES "CAFFE")
-  CMAKE_DEPENDENT_OPTION(BUILD_CAFFE "Build Caffe as part of OpenPose." ON
+  #CMAKE_DEPENDENT_OPTION(BUILD_CAFFE "Build Caffe as part of OpenPose." ON
+  CMAKE_DEPENDENT_OPTION(BUILD_CAFFE "Build Caffe as part of OpenPose." OFF
     "DL_FRAMEWORK" ON)
   # OpenPose flags
   add_definitions(-DUSE_CAFFE)
